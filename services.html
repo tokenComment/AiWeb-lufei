@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>服务 - 科技公司官网</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #0a0a0a;
+            color: #e0e0e0;
+            overflow-x: hidden;
+        }
+
+        /* 导航栏样式 */
+        nav {
+            background-color: rgba(0, 0, 0, 0.7);
+            padding: 15px 0;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 10;
+        }
+
+        nav ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+        }
+
+        nav ul li {
+            margin: 0 20px;
+        }
+
+        nav ul li a {
+            color: #e0e0e0;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        nav ul li a:hover {
+            color: #00ffcc;
+        }
+
+        /* 服务内容区域样式 */
+       .services-content {
+            position: relative;
+            z-index: 1;
+            padding: 100px 50px;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 50px;
+        }
+
+       .service-tech {
+            width: 300px;
+            padding: 20px;
+            border: 1px solid #00ffcc;
+            border-radius: 10px;
+            transition: transform 0.3s ease;
+            background-color: rgba(0, 0, 0, 0.7);
+        }
+
+       .service-tech:hover {
+            transform: scale(1.05);
+        }
+
+       .service-tech h2 {
+            font-size: 24px;
+            color: #00ffcc;
+            margin-bottom: 10px;
+        }
+
+       .service-tech p {
+            font-size: 16px;
+            line-height: 1.6;
+        }
+
+        /* 星空粒子容器样式 */
+        #starry-particle-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 0;
+        }
+
+        /* 底部区域样式 */
+        footer {
+            background-color: rgba(0, 0, 0, 0.7);
+            padding: 20px 0;
+            text-align: center;
+            position: relative;
+            z-index: 1;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- 导航栏 -->
+    <nav>
+        <ul>
+            <li><a href="index.html">首页</a></li>
+            <li><a href="about.html">关于我们</a></li>
+            <li><a href="services.html">服务</a></li>
+            <li><a href="#">联系我们</a></li>
+        </ul>
+    </nav>
+
+    <!-- 星空粒子容器 -->
+    <canvas id="starry-particle-container"></canvas>
+
+    <!-- 服务内容区域 -->
+    <div class="services-content">
+        <div class="service-tech">
+            <h2>机器人运动控制技术</h2>
+            <p>我们运用先进的算法和传感器技术，实现机器人精确的运动控制。从简单的直线移动到复杂的曲线轨迹规划，机器人能够灵活、稳定地执行各种任务。结合实时反馈和自适应控制，使机器人在不同环境中都能高效运行。</p>
+        </div>
+        <div class="service-tech">
+            <h2>人工智能视觉识别技术</h2>
+            <p>通过深度学习和计算机视觉算法，我们的机器人具备强大的视觉识别能力。可以准确识别物体的形状、颜色、纹理等特征，实现目标检测、图像分类、场景理解等功能。广泛应用于工业检测、物流分拣、安防监控等领域。</p>
+        </div>
+        <div class="service-tech">
+            <h2>自然语言交互技术</h2>
+            <p>利用大语言模型和语音处理技术，实现机器人与人类的自然语言交互。机器人能够理解人类的语音指令，进行智能对话，并提供准确的回答和建议。这一技术提升了人机交互的便捷性和效率，适用于客服、导览等场景。</p>
+        </div>
+        <div class="service-tech">
+            <h2>机器人自主导航技术</h2>
+            <p>借助激光雷达、摄像头等传感器，机器人可以实时感知周围环境，构建地图并规划最优路径。采用SLAM（同步定位与地图构建）算法，实现机器人在未知环境中的自主导航。可应用于仓储物流、清洁服务、智能巡检等领域。</p>
+        </div>
+        <div class="service-tech">
+            <h2>多机器人协作技术</h2>
+            <p>我们研发的多机器人协作系统，使多个机器人能够协同工作，完成复杂的任务。通过分布式控制和通信协议，机器人之间可以实现信息共享和任务分配，提高工作效率和整体性能。适用于大规模生产、物流配送等场景。</p>
+        </div>
+        <div class="service-tech">
+            <h2>情感计算与社交机器人技术</h2>
+            <p>结合情感计算和机器学习算法，让机器人能够感知人类的情感状态，并做出相应的情感回应。社交机器人可以与人类建立情感连接，提供陪伴、心理支持等服务。在养老、教育、娱乐等领域具有广阔的应用前景。</p>
+        </div>
+    </div>
+
+    <!-- 底部区域 -->
+    <footer>
+        <p>深圳市索威尔科技有限公司</p>
+        <p>地址：滨海大道三诺智慧大厦1502</p>
+        <p>电话：13714190966</p>
+    </footer>
+
+    <script>
+        // 星空粒子效果
+        const starryCanvas = document.getElementById('starry-particle-container');
+        const starryCtx = starryCanvas.getContext('2d');
+        starryCanvas.width = window.innerWidth;
+        starryCanvas.height = window.innerHeight;
+
+        const starryParticles = [];
+        const numStarryParticles = 200;
+        const starryColors = ['#ffffff', '#cccccc', '#aaaaaa'];
+
+        class StarryParticle {
+            constructor() {
+                this.x = Math.random() * starryCanvas.width;
+                this.y = Math.random() * starryCanvas.height;
+                this.vx = (Math.random() - 0.5) * 0.5;
+                this.vy = (Math.random() - 0.5) * 0.5;
+                this.size = Math.random() * 2 + 1;
+                this.color = starryColors[Math.floor(Math.random() * starryColors.length)];
+            }
+
+            update() {
+                this.x += this.vx;
+                this.y += this.vy;
+
+                if (this.x < 0 || this.x > starryCanvas.width) {
+                    this.vx = -this.vx;
+                }
+                if (this.y < 0 || this.y > starryCanvas.height) {
+                    this.vy = -this.vy;
+                }
+            }
+
+            draw() {
+                starryCtx.beginPath();
+                starryCtx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+                starryCtx.fillStyle = this.color;
+                starryCtx.fill();
+            }
+        }
+
+        for (let i = 0; i < numStarryParticles; i++) {
+            starryParticles.push(new StarryParticle());
+        }
+
+        function starryAnimate() {
+            starryCtx.clearRect(0, 0, starryCanvas.width, starryCanvas.height);
+
+            starryParticles.forEach(particle => {
+                particle.update();
+                particle.draw();
+            });
+
+            requestAnimationFrame(starryAnimate);
+        }
+
+        starryAnimate();
+
+        window.addEventListener('resize', () => {
+            starryCanvas.width = window.innerWidth;
+            starryCanvas.height = window.innerHeight;
+        });
+    </script>
+</body>
+
+</html>    

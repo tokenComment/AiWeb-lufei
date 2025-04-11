@@ -1,0 +1,405 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>科技公司官网 - 数学之美</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #0a0a0a;
+            color: #e0e0e0;
+            overflow-x: hidden;
+        }
+
+        /* 导航栏样式 */
+        nav {
+            background-color: rgba(0, 0, 0, 0.7);
+            padding: 15px 0;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 10;
+        }
+
+        nav ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+        }
+
+        nav ul li {
+            margin: 0 20px;
+        }
+
+        nav ul li a {
+            color: #e0e0e0;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        nav ul li a:hover {
+            color: #00ffcc;
+        }
+
+        /* 几何图特效粒子容器样式 */
+       .geometry-particle-container {
+            position: relative;
+            width: 100%;
+            height: 500px;
+            overflow: hidden;
+            margin-top: 50px;
+        }
+
+        /* 覆盖在特效图上的文字样式 */
+       .overlay-text {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            text-align: center;
+            z-index: 2;
+            width: 80%;
+        }
+
+       .overlay-text h1 {
+            font-size: 48px;
+            margin-bottom: 20px;
+            color: #00ffcc;
+            text-shadow: 0 0 10px rgba(0, 255, 204, 0.8);
+        }
+
+       .overlay-text p {
+            font-size: 20px;
+            max-width: 600px;
+            margin: 0 auto 40px;
+            color: white;
+            text-shadow: 0 0 5px rgba(0, 0, 0, 0.8);
+        }
+
+       .cta-button {
+            display: inline-block;
+            background-color: #00ffcc;
+            color: #0a0a0a;
+            padding: 15px 30px;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: bold;
+            transition: background-color 0.3s ease;
+            box-shadow: 0 0 10px rgba(0, 255, 204, 0.8);
+        }
+
+       .cta-button:hover {
+            background-color: #00cc99;
+        }
+
+        /* 主内容区域样式 */
+       .main-content {
+            position: relative;
+            z-index: 1;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+        }
+
+       .main-content h1 {
+            font-size: 48px;
+            margin-bottom: 20px;
+            color: #00ffcc;
+        }
+
+       .main-content p {
+            font-size: 20px;
+            max-width: 600px;
+            margin-bottom: 40px;
+        }
+
+       .cta-button {
+            display: inline-block;
+            background-color: #00ffcc;
+            color: #0a0a0a;
+            padding: 15px 30px;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: bold;
+            transition: background-color 0.3s ease;
+        }
+
+       .cta-button:hover {
+            background-color: #00cc99;
+        }
+
+        /* 粒子容器样式 */
+        #particle-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 0;
+        }
+
+        /* AI 技术内容区域样式 */
+       .ai-content {
+            position: relative;
+            z-index: 1;
+            padding: 100px 50px;
+            background-color: rgba(0, 0, 0, 0.7);
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 50px;
+        }
+
+       .ai-tech {
+            width: 300px;
+            padding: 20px;
+            border: 1px solid #00ffcc;
+            border-radius: 10px;
+            transition: transform 0.3s ease;
+        }
+
+       .ai-tech:hover {
+            transform: scale(1.05);
+        }
+
+       .ai-tech h2 {
+            font-size: 24px;
+            color: #00ffcc;
+            margin-bottom: 10px;
+        }
+
+       .ai-tech p {
+            font-size: 16px;
+            line-height: 1.6;
+        }
+
+        /* 底部区域样式 */
+        footer {
+            background-color: rgba(0, 0, 0, 0.7);
+            padding: 20px 0;
+            text-align: center;
+            position: relative;
+            z-index: 1;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- 导航栏 -->
+    <nav>
+        <ul>
+            <li><a href="index.html">首页</a></li>
+            <li><a href="about.html">关于我们</a></li>
+            <li><a href="services.html">服务</a></li>
+            <li><a href="#">联系我们</a></li>
+        </ul>
+    </nav>
+
+    <!-- 几何图特效粒子容器 -->
+    <div class="geometry-particle-container">
+        <canvas id="geometry-particle-canvas"></canvas>
+        <div class="overlay-text">
+            <h1>探索数学之美，驱动科技未来</h1>
+            <p>我们的科技公司将数学的精妙与科技的创新完美融合，致力于为您带来前所未有的解决方案。</p>
+            <a href="#" class="cta-button">了解更多</a>
+        </div>
+    </div>
+
+    <!-- 主内容区域 -->
+    <div class="main-content">
+        <h1>科技驱动创新</h1>
+        <p>我们专注于前沿科技研发，为客户提供高品质的科技服务。</p>
+        <a href="#" class="cta-button">查看服务</a>
+    </div>
+
+    <!-- 粒子容器 -->
+    <canvas id="particle-container"></canvas>
+
+    <!-- AI 技术内容区域 -->
+    <div class="ai-content">
+        <div class="ai-tech">
+            <h2>生成式 AI</h2>
+            <p>生成式 AI 能够根据输入的数据生成全新的、有创意的内容，如文本、图像、音乐等。在自然语言处理中，它可以撰写文章、对话聊天；在图像领域，能创作逼真的绘画、设计独特的图案。这一技术为内容创作、广告设计、娱乐等行业带来了巨大的变革。</p>
+        </div>
+        <div class="ai-tech">
+            <h2>强化学习</h2>
+            <p>强化学习是一种让智能体通过与环境进行交互，不断尝试不同的行动，以最大化累积奖励的机器学习方法。它在机器人控制、自动驾驶、游戏等领域有广泛应用。例如，训练机器人完成复杂的任务，使自动驾驶汽车做出更智能的决策。</p>
+        </div>
+        <div class="ai-tech">
+            <h2>大语言模型</h2>
+            <p>大语言模型具有强大的语言理解和生成能力，能够处理各种自然语言任务，如问答系统、机器翻译、文本摘要等。通过大规模的数据训练和先进的架构设计，大语言模型可以提供高质量的语言交互体验，推动了智能客服、智能写作等应用的发展。</p>
+        </div>
+        <div class="ai-tech">
+            <h2>计算机视觉</h2>
+            <p>计算机视觉旨在让计算机从图像或视频中理解和解释视觉信息。它涵盖了目标检测、图像识别、语义分割等技术，广泛应用于安防监控、医疗影像诊断、自动驾驶等领域，为这些领域带来了高效、精准的解决方案。</p>
+        </div>
+        <div class="ai-tech">
+            <h2>AI 芯片技术</h2>
+            <p>AI 芯片是专门为人工智能应用设计的芯片，能够提供更高的计算性能和更低的功耗。它加速了 AI 算法的运行速度，推动了深度学习、机器学习等技术在移动设备、数据中心等场景的广泛应用。</p>
+        </div>
+        <div class="ai-tech">
+            <h2>边缘 AI</h2>
+            <p>边缘 AI 将 AI 计算能力推向网络边缘设备，如智能手机、摄像头、传感器等。这减少了数据传输延迟，提高了系统的实时性和隐私性，适用于智能家居、工业自动化等对实时性要求较高的场景。</p>
+        </div>
+    </div>
+
+    <!-- 底部区域 -->
+    <footer>
+        <p>深圳市索威尔科技有限公司</p>
+        <p>地址：滨海大道三诺智慧大厦1502</p>
+        <p>电话：13714190966</p>
+    </footer>
+
+    <script>
+        // 原背景粒子效果
+        const canvas = document.getElementById('particle-container');
+        const ctx = canvas.getContext('2d');
+        canvas.width = window.innerWidth;
+        canvas.height = window.innerHeight;
+
+        const particles = [];
+        const numParticles = 100;
+        const colors = ['#00ffcc', '#0099ff', '#9900ff'];
+
+        class Particle {
+            constructor() {
+                this.x = Math.random() * canvas.width;
+                this.y = Math.random() * canvas.height;
+                this.vx = (Math.random() - 0.5) * 2;
+                this.vy = (Math.random() - 0.5) * 2;
+                this.size = Math.random() * 3 + 1;
+                this.color = colors[Math.floor(Math.random() * colors.length)];
+            }
+
+            update() {
+                this.x += this.vx;
+                this.y += this.vy;
+
+                if (this.x < 0 || this.x > canvas.width) {
+                    this.vx = -this.vx;
+                }
+                if (this.y < 0 || this.y > canvas.height) {
+                    this.vy = -this.vy;
+                }
+            }
+
+            draw() {
+                ctx.beginPath();
+                ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+                ctx.fillStyle = this.color;
+                ctx.fill();
+            }
+        }
+
+        for (let i = 0; i < numParticles; i++) {
+            particles.push(new Particle());
+        }
+
+        function animate() {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+            particles.forEach(particle => {
+                particle.update();
+                particle.draw();
+            });
+
+            requestAnimationFrame(animate);
+        }
+
+        animate();
+
+        window.addEventListener('resize', () => {
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
+        });
+
+        // 几何图特效粒子效果
+        const geometryCanvas = document.getElementById('geometry-particle-canvas');
+        const geometryCtx = geometryCanvas.getContext('2d');
+        geometryCanvas.width = window.innerWidth;
+        geometryCanvas.height = 500;
+
+        const geometryParticles = [];
+        const numGeometryParticles = 50;
+
+        class GeometryParticle {
+            constructor() {
+                this.x = Math.random() * geometryCanvas.width;
+                this.y = Math.random() * geometryCanvas.height;
+                this.vx = (Math.random() - 0.5) * 3;
+                this.vy = (Math.random() - 0.5) * 3;
+                this.size = Math.random() * 10 + 5;
+                this.color = colors[Math.floor(Math.random() * colors.length)];
+                this.shape = ['circle', 'triangle', 'square'][Math.floor(Math.random() * 3)];
+            }
+
+            update() {
+                this.x += this.vx;
+                this.y += this.vy;
+
+                if (this.x < 0 || this.x > geometryCanvas.width) {
+                    this.vx = -this.vx;
+                }
+                if (this.y < 0 || this.y > geometryCanvas.height) {
+                    this.vy = -this.vy;
+                }
+            }
+
+            draw() {
+                geometryCtx.fillStyle = this.color;
+                switch (this.shape) {
+                    case 'circle':
+                        geometryCtx.beginPath();
+                        geometryCtx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+                        geometryCtx.fill();
+                        break;
+                    case 'triangle':
+                        geometryCtx.beginPath();
+                        geometryCtx.moveTo(this.x, this.y - this.size);
+                        geometryCtx.lineTo(this.x + this.size, this.y + this.size);
+                        geometryCtx.lineTo(this.x - this.size, this.y + this.size);
+                        geometryCtx.closePath();
+                        geometryCtx.fill();
+                        break;
+                    case 'square':
+                        geometryCtx.fillRect(this.x - this.size / 2, this.y - this.size / 2, this.size, this.size);
+                        break;
+                }
+            }
+        }
+
+        for (let i = 0; i < numGeometryParticles; i++) {
+            geometryParticles.push(new GeometryParticle());
+        }
+
+        function geometryAnimate() {
+            geometryCtx.clearRect(0, 0, geometryCanvas.width, geometryCanvas.height);
+
+            geometryParticles.forEach(particle => {
+                particle.update();
+                particle.draw();
+            });
+
+            requestAnimationFrame(geometryAnimate);
+        }
+
+        geometryAnimate();
+
+        window.addEventListener('resize', () => {
+            geometryCanvas.width = window.innerWidth;
+            geometryCanvas.height = 500;
+        });
+    </script>
+</body>
+
+</html>    
